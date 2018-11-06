@@ -41,8 +41,8 @@ VALUES	(321, '20180101', '20180101', 1, 1, 1, 2),
 		(231, '20180103', '20180303', 3, 3, 3, 1)		
 GO
 
-INSERT INTO Cost ([Date], Quantity, Price, CityID, TravelOrderID)
-VALUES	('20180101', 7, 7, 1, 1),
-		('20180102', 8, 8, 2, 2),
-		('20180103', 9, 9, 3, 3)
+INSERT INTO Cost ([Date], Quantity, Price, FuelID, CityID, TravelOrderID)
+VALUES	('20180101', 7, 7, 1, 1, 1),
+		('20180102', 8, 8, 1, 2, 2),
+		('20180103', 9, 9, 2, 3, 3)
 GO

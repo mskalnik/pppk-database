@@ -88,7 +88,7 @@ CREATE TABLE TravelOrder
 	DriverID			int,
 	StartCityID			int,
 	FinishCityID		int,
-	CONSTRAINT PK_IDTravelOrder PRIMARY KEY (IDTravelOrder),
+	CONSTRAINT PK_IDTravelOrder PRIMARY KEY (IDTravelOrder),	
 	CONSTRAINT FK_TravelOrder_TravelOrderTypeID FOREIGN KEY (TravelOrderTypeID) REFERENCES TravelOrderType(IDTravelOrderType),	
 	CONSTRAINT FK_TravelOrder_DriverID FOREIGN KEY (DriverID) REFERENCES Driver(IDDriver),
 	CONSTRAINT FK_TravelOrder_StartCityID FOREIGN KEY (StartCityID) REFERENCES City(IDCity),	
@@ -101,10 +101,12 @@ CREATE TABLE Cost
 	IDCost			int IDENTITY,
 	[Date]			date,
 	Quantity		int,		
-	Price			money,
+	Price			money,	
+	FuelID			int,
 	CityID			int,
 	TravelOrderID	int,
 	CONSTRAINT PK_IDCost PRIMARY KEY (IDCost),
+	CONSTRAINT FK_Cost_FuelID FOREIGN KEY (FuelID) REFERENCES Fuel(IDFuel),	
 	CONSTRAINT FK_Cost_CityID FOREIGN KEY (CityID) REFERENCES City(IDCity),
 	CONSTRAINT FK_Cost_TravelOrderID FOREIGN KEY (TravelOrderID) REFERENCES TravelOrder(IDTravelOrder)
 )
