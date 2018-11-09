@@ -79,11 +79,13 @@ CREATE TABLE TravelOrder
 	DriverID			int,
 	StartCityID			int,
 	FinishCityID		int,
+	CarID				int,
 	CONSTRAINT PK_IDTravelOrder PRIMARY KEY (IDTravelOrder),	
 	CONSTRAINT FK_TravelOrder_TravelOrderTypeID FOREIGN KEY (TravelOrderTypeID) REFERENCES TravelOrderType(IDTravelOrderType),	
 	CONSTRAINT FK_TravelOrder_DriverID FOREIGN KEY (DriverID) REFERENCES Driver(IDDriver),
 	CONSTRAINT FK_TravelOrder_StartCityID FOREIGN KEY (StartCityID) REFERENCES City(IDCity),	
-	CONSTRAINT FK_TravelOrder_FinishCityID FOREIGN KEY (FinishCityID) REFERENCES City(IDCity)
+	CONSTRAINT FK_TravelOrder_FinishCityID FOREIGN KEY (FinishCityID) REFERENCES City(IDCity),	
+	CONSTRAINT FK_TravelOrder_CarID FOREIGN KEY (CarID) REFERENCES Car(IDCar)
 )
 GO
 

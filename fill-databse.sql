@@ -31,10 +31,10 @@ INSERT INTO Fuel ([Name])
 VALUES ('Dizel'), ('Benzin')
 GO
 
-INSERT INTO TravelOrder (Distance, StartDate, EndDate, TravelOrderTypeID, DriverID, StartCityID, FinishCityID)
-VALUES	(321, '20180101', '20180101', 1, 1, 1, 2),
-		(123, '20180102', '20180202', 2, 2, 2, 3),
-		(231, '20180103', '20180303', 3, 3, 3, 1)		
+INSERT INTO TravelOrder (Distance, StartDate, EndDate, TravelOrderTypeID, DriverID, StartCityID, FinishCityID, CarID)
+VALUES	(321, '20180101', '20180101', 1, 1, 1, 2, 1),
+		(123, '20180102', '20180202', 2, 2, 2, 3, 2),
+		(231, '20180103', '20180303', 3, 3, 3, 1, 3)		
 GO
 
 INSERT INTO Cost ([Date], Quantity, Price, FuelID, CityID, TravelOrderID)
