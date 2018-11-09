@@ -15,14 +15,6 @@ CREATE TABLE Driver
 )
 GO
 
-CREATE TABLE CarType
-(
-	IDCarType	int IDENTITY,
-	[Type]		nvarchar(50),
-	CONSTRAINT PK_IDCarType PRIMARY KEY (IDCarType)
-)
-GO
-
 CREATE TABLE CarBrand
 (
 	IDCarBrand	int IDENTITY,
@@ -31,12 +23,12 @@ CREATE TABLE CarBrand
 )
 GO
 
-CREATE TABLE CarModel
+CREATE TABLE CarType
 (
-	IDCarModel	int IDENTITY,
+	IDCarType	int IDENTITY,
 	[Name]		nvarchar(50),
 	CarBrandID	int,
-	CONSTRAINT PK_IDCarModel PRIMARY KEY (IDCarModel),
+	CONSTRAINT PK_IDCarModel PRIMARY KEY (IDCarType),
 	CONSTRAINT FK_CarModel_CarBrandID FOREIGN KEY (CarBrandID) REFERENCES CarBrand(IDCarBrand)
 )
 GO
@@ -44,13 +36,12 @@ GO
 CREATE TABLE Car
 (
 	IDCar				int IDENTITY,
+	Registration		nvarchar(20),
 	InitialKm			int,
 	YearOfProduction	int,
 	CarTypeID			int,
-	CarModelID			int,
 	CONSTRAINT PK_IDCar PRIMARY KEY (IDCar),
-	CONSTRAINT FK_Car_CarTypeID FOREIGN KEY (CarTypeID) REFERENCES CarType(IDCarType),	
-	CONSTRAINT FK_Car_CarModelID FOREIGN KEY (CarModelID) REFERENCES CarModel(IDCarModel)
+	CONSTRAINT FK_Car_CarTypeID FOREIGN KEY (CarTypeID) REFERENCES CarType(IDCarType)
 )
 GO
 

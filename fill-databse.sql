@@ -7,20 +7,16 @@ VALUES	('First', 'Person', '77564765776', '645365436563'),
 		('Third', 'Person', '756434756856', '9879879879996')
 GO
 
-INSERT INTO CarType ([Type])
-VALUES ('Sedan'), ('Coupe'), ('SUV')
-GO
-
 INSERT INTO CarBrand ([Name])
 VALUES ('Audi'), ('BMW'), ('Mercedes')
 GO
 
-INSERT INTO CarModel ([Name], CarBrandID)
+INSERT INTO CarType([Name], CarBrandID)
 VALUES ('A8', 1), ('X4', 2), ('S', 3)
 GO
 
-INSERT INTO Car(InitialKm, YearOfProduction, CarTypeID, CarModelID)
-VALUES (12321, 1991, 1, 1), (423, 1992, 2, 2), (545, 1993, 3, 3)
+INSERT INTO Car(Registration, InitialKm, YearOfProduction, CarTypeID)
+VALUES ('DA-123-NE', 12321, 1991, 1), ('NE-321-DA', 423, 1992, 2), ('ZG-666-HE', 545, 1993, 3)
 GO
 
 INSERT INTO TravelOrderType ([Type])
