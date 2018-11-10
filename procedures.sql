@@ -90,3 +90,23 @@ BEGIN
 	VALUES (@Registration, @InitialKm, @YearOfProduction, @CarTypeID)
 END
 GO
+
+CREATE PROCEDURE DeleteCar
+	@IDCar int
+AS
+BEGIN
+	DELETE FROM Cost WHERE TravelOrderID IN (SELECT IDTravelOrder FROM TravelOrder WHERE CarID = @IDCar)
+	DELETE FROM TravelOrder WHERE CarID = @IDCar
+	DELETE FROM Car WHERE IDCar = @IDCar
+END
+GO
+
+CREATE PROCEDURE DeleteDriver
+	@IDDriver int
+AS
+BEGIN
+	DELETE FROM Cost WHERE TravelOrderID IN (SELECT IDTravelOrder FROM TravelOrder WHERE DriverID = @IDDriver)
+	DELETE FROM TravelOrder WHERE DriverID = @IDDriver
+	DELETE FROM Driver WHERE IDDriver = @IDDriver
+END
+GO
