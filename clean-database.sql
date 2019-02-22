@@ -109,3 +109,17 @@ CREATE TABLE Cost
 	CONSTRAINT FK_Cost_TravelOrderID FOREIGN KEY (TravelOrderID) REFERENCES TravelOrder(IDTravelOrder)
 )
 GO
+
+CREATE TABLE [Route]
+(
+	IDRoute			int IDENTITY,
+    StartCoordinate decimal,
+    EndCoordinate	decimal,
+    StartDate		date,
+    EndDate			date,
+    Distance		decimal,
+    FuelUsed		decimal,
+    TravelOrderID	int,
+	CONSTRAINT PK_IDRoute PRIMARY KEY (IDRoute),
+	CONSTRAINT FK_Route_TravelOrderID FOREIGN KEY (TravelOrderID) REFERENCES TravelOrder(IDTravelOrder)
+)

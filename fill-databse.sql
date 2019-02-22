@@ -42,3 +42,8 @@ VALUES	('20180101', 7, 7, 1, 1, 1),
 		('20180102', 8, 8, 1, 2, 2),
 		('20180103', 9, 9, 2, 3, 3)
 GO
+
+INSERT INTO [Route] (StartCoordinate, EndCoordinate, StartDate, EndDate, Distance, FuelUsed, TravelOrderID)
+VALUES	('1234567', '7654321', '20180101', '20180101', 12.3, 12.3, 1),
+		('5345435', '5435534', '20180202', '20180202', 32.1, 32.1, 2)
+GO

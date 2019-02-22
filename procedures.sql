@@ -110,3 +110,54 @@ BEGIN
 	DELETE FROM Driver WHERE IDDriver = @IDDriver
 END
 GO
+
+CREATE PROCEDURE AddRoute
+	@StartCoordinate	decimal, 
+	@EndCoordinate		decimal, 
+	@StartDate			date,
+	@EndDate			date, 
+	@Distance			decimal, 
+	@FuelUsed			decimal, 
+	@TravelOrderID		int
+AS
+BEGIN
+	INSERT INTO [Route](StartCoordinate, EndCoordinate, StartDate, EndDate, Distance, FuelUsed, TravelOrderID)
+	VALUES (@StartCoordinate, @EndCoordinate, @StartDate, @EndDate, @Distance, @FuelUsed, @TravelOrderID)
+END
+GO
+
+CREATE PROCEDURE GetRoutes
+AS
+	SELECT * FROM [Route]
+GO
+
+CREATE PROCEDURE GetRoutesFor
+	@idTravelOrder	int
+AS
+	SELECT * 
+	FROM [Route] 
+	WHERE [Route].TravelOrderId = @idTravelOrder
+GO
+
+CREATE PROCEDURE UpdateRoute
+	@IDRoute			int,
+	@StartCoordinate	decimal, 
+	@EndCoordinate		decimal, 
+	@StartDate			date,
+	@EndDate			date, 
+	@Distance			decimal, 
+	@FuelUsed			decimal, 
+	@TravelOrderID		int
+AS
+	UPDATE [Route]
+	SET	StartCoordinate = @StartCoordinate, EndCoordinate = @EndCoordinate, StartDate = @StartDate, EndDate = @EndDate, 
+		Distance = @Distance, FuelUsed = @FuelUsed, TravelOrderID = @TravelOrderID
+	WHERE [Route].IDRoute = @IDRoute		
+GO
+
+CREATE PROCEDURE DeleteRoute
+	@id	int
+AS
+	DELETE FROM [Route]
+	WHERE [Route].IDRoute = @id
+GO
